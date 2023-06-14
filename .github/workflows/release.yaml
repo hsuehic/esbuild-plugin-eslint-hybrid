@@ -25,19 +25,19 @@ jobs:
         if: ${{ contains(github.event.head_commit.message, '[patch]') }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ secrets.TEST }}
       - run: npm version minor
         if: ${{ contains(github.event.head_commit.message, '[minor]') }}
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ secrets.TEST }}
       - run: npm version major
         if: ${{ contains(github.event.head_commit.message, '[minor]') }}
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ secrets.TEST }}
       - run: npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: git push
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ secrets.TEST }}
