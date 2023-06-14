@@ -1,0 +1,8 @@
+runs:
+  steps:
+    - name: use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+    - name: install pnpm 
+      run: npm -g install pnpm
+    - name: install dependencies
+      run: pnpm install --frozen-lockfile

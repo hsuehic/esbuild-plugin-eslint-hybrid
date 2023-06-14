@@ -1,0 +1,19 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.16.0]
+    name: Test
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - uses: ./.github/actions/stetup
+      - name: run lint
+        run: echo 'Testing'

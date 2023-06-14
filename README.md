@@ -5,7 +5,9 @@ Created this package, since the original [`esbuild-plugin-eslint`](https://githu
 This package is mostly based on [`esbuild-plugin-eslint`](https://github.com/robinloeffel/esbuild-plugin-eslint). Very thankful for the author's great work.
 
 [![latest version on npm](https://img.shields.io/npm/v/esbuild-plugin-eslint-hybrid)](https://www.npmjs.com/package/esbuild-plugin-eslint-hybrid)
-[![CI/CD](https://github.com/hsuehic/esbuild-plugin-eslint-hybrid/actions/workflows/cicd.yaml/badge.svg)](https://github.com/hsuehic/esbuild-plugin-eslint-hybrid/actions/workflows/cicd.yaml/badge.svg?branch=main)
+[![Lint](https://github.com/hsuehic/esbuild-plugin-eslint-hybrid/actions/workflows/lint.yaml/badge.svg)](https://github.com/hsuehic/esbuild-plugin-eslint-hybrid/actions/workflows/lint.yaml/badge.svg?branch=main)
+[![Test](https://github.com/hsuehic/esbuild-plugin-eslint-hybrid/actions/workflows/test.yaml/badge.svg)](https://github.com/hsuehic/esbuild-plugin-eslint-hybrid/actions/workflows/lint.yaml/test.svg?branch=main)
+[![Release](https://github.com/hsuehic/esbuild-plugin-eslint-hybrid/actions/workflows/release.yaml/badge.svg)](https://github.com/hsuehic/esbuild-plugin-eslint-hybrid/actions/workflows/release.yaml/test.svg?branch=main)
 [![npm downloads a month](https://img.shields.io/npm/dm/esbuild-plugin-eslint-hybrid)](https://www.npmjs.com/package/esbuild-plugin-eslint-hybrid)
 [![required node version](https://img.shields.io/node/v/esbuild-plugin-eslint-hybrid)](https://github.com/nodejs/Release)
 [![esbuild peer dep](https://img.shields.io/npm/dependency-version/esbuild-plugin-eslint-hybrid/peer/esbuild?label=esbuild%20peer%20dep)](https://github.com/evanw/esbuild)

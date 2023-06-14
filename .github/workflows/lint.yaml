@@ -1,0 +1,21 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.16.0]
+    name: Lint
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - uses: ./.github/actions/stetup
+      - name: run lint
+        run: pnpm run lint
+  
+ 
