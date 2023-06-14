@@ -1,0 +1,81 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.16.0]
+    name: Setup environment
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - name: use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+      - name: install pnpm 
+        run: npm -g install pnpm
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
+  
+  lint:
+    runs-on: ubuntu-latest
+    needs: [setup]
+    steps:
+      - name: lint
+        run: pnpm run eslint
+
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: [setup]
+  #   steps:
+  #     - name: test
+  #       run: pnpm run test
+  #       env:
+  #         CI: true
+  #     - name: Upload coverage reports to Codecov
+  #       uses: codecov/codecov-action@v3
+  #       env:
+  #         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  
+
+  build:
+    if: ${{ contains(github.event.head_commit.message, '[patch]') || contains(github.event.head_commit.message, '[minor]') || contains(github.event.head_commit.message, '[major]') }}
+    runs-on: ubuntu-latest
+    needs: [setup]
+    steps:
+      - name: Build
+        run: pnpm run build  
+  
+  release:
+    if: ${{ contains(github.event.head_commit.message, '[patch]') || contains(github.event.head_commit.message, '[minor]') || contains(github.event.head_commit.message, '[major]') }}
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - run: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+      - run: git config user.email "xiaoweihsueh@gmail.com"
+      - run: git config user.name "Hsuehic"
+      - name: Version
+        run: npm version patch
+        if: ${{ contains(github.event.head_commit.message, '[patch]') }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT }}
+      - run: npm version minor
+        if: ${{ contains(github.event.head_commit.message, '[minor]') }}
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+      - run: npm version major
+        if: ${{ contains(github.event.head_commit.message, '[minor]') }}
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+      - run: npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: git push
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
