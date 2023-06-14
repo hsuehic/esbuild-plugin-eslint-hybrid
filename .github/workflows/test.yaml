@@ -14,6 +14,6 @@ jobs:
     name: Test
     steps:
       - uses: actions/checkout@v3.3.0
-      - uses: ./.github/actions/stetup
-      - name: run lint
+      - uses: ./.github/actions/setup
+      - name: run test
         run: echo 'Testing'

@@ -14,7 +14,8 @@ jobs:
     name: Lint
     steps:
       - uses: actions/checkout@v3.3.0
-      - uses: ./.github/actions/stetup
+
+      - uses: ./.github/actions/setup
       - name: run lint
         run: pnpm run lint
   
