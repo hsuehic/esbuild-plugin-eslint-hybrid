@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-eslint-hybrid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "esbuild plugin to integrate eslint",
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",
