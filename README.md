@@ -14,7 +14,7 @@ This package is mostly based on [`esbuild-plugin-eslint`](https://github.com/rob
 [![eslint peer dep](https://img.shields.io/npm/dependency-version/esbuild-plugin-eslint-hybrid/peer/eslint?label=eslint%20peer%20dep)](https://github.com/eslint/eslint)
 [![package license](https://img.shields.io/npm/l/esbuild-plugin-eslint-hybrid)](license)
 
-> Lint your [`esbuild`](https://github.com/evanw/esbuild) bundles with [`eslint`](https://github.com/eslint/eslint). 🧐
+> Lint your code when bundling with [`esbuild`](https://github.com/evanw/esbuild) using [`eslint`](https://github.com/eslint/eslint). 🧐
 
 Nicely integrates the most recent version of [`eslint`](https://github.com/eslint/eslint) into an [`esbuild`](https://github.com/evanw/esbuild) plugin.
 
