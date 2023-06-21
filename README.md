@@ -42,7 +42,7 @@ await build({
 
 ```js
 const { build } = require('esbuild');
-const eslint = require('esbuild-plugin-eslint-hybrid');
+const eslint = require('esbuild-plugin-eslint-hybrid').default;
 
 await build({
   // ...
